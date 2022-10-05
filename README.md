@@ -16,5 +16,5 @@ pitch 90° from ground (or set manually)
 
 To retarget skeleton: blender rokoko or some motion retargeting
 
-#### Handtracking on valve index cameras
+#### Hand Tracking with valve index cameras
 ![](handtracking.png)
