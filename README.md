@@ -1,4 +1,5 @@
-# Motion capture animation using google mediapipe pose estimation
+#### Motion capture animation using
+###google mediapipe pose estimation
 
 Inverse project from screenspace to worldspace  
 Fix jittering with smooth sampling multiple frames

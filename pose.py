@@ -15,14 +15,13 @@ cap = cv2.VideoCapture(sys.argv[1])
 # cap = cv2.VideoCapture(1)
 #record whole video
 cut_at_frame = 9999999999
+video_fps = cap.get(cv2.CAP_PROP_FPS)
 
 if len(sys.argv) >= 3:
     #jump to start sec
     cap.set(cv2.CAP_PROP_POS_MSEC, 1000 * int(sys.argv[2]))
 if len(sys.argv) >= 4:
-    #set duration
-    video_fps = cap.get(cv2.CAP_PROP_FPS)
-    print("fps" + str(video_fps))
+    #set max duration
     cut_at_frame = int(sys.argv[3]) * video_fps
 
 frame_count = 0
@@ -65,6 +64,7 @@ height, width, c = image.shape
 f = open('anim.mocap', 'w+b')
 f.write(bytearray(struct.pack("i", int(width))))
 f.write(bytearray(struct.pack("i", int(height))))
+f.write(bytearray(struct.pack("i", int(video_fps))))
 f.write(bytearray(struct.pack("i", int(len(animation)))))
 f.write(bytearray(struct.pack("i", int(len(animation[0])))))
 
